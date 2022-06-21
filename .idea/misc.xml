@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/drawable/by_button.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/my_sign_up.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.115625" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
       </map>
     </option>
   </component>
