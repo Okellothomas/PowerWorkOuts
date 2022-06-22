@@ -18,9 +18,9 @@
 
       <com.google.android.material.imageview.ShapeableImageView
           android:id="@+id/category_image"
-          android:layout_width="0dp"
+          android:layout_width="match_parent"
           android:layout_height="@dimen/image_dimension"
-          android:background="@color/power_workouts_grey"
+          android:scaleType="centerCrop"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent"
@@ -32,8 +32,8 @@
           style="@style/BoldTextStyle"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/default_margin"
-          android:layout_marginBottom="@dimen/default_margin"
+          android:layout_marginTop="@dimen/margin"
+          android:layout_marginBottom="@dimen/margin"
           android:gravity="center"
           android:textColor="@color/power_workouts_black"
           app:layout_constraintBottom_toBottomOf="parent"
