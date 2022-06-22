@@ -16,4 +16,5 @@
   <string name="failure_feedback">Something went wrong. Please check your internet connection and try again.</string>
   <string name="no_workouts">No workouts found</string>
   <string name="no_workout_categories">No workout categories found</string>
+  <string name="content_desc_category_image">Workout category image</string>
 </resources>
