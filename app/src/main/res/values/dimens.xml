@@ -12,4 +12,6 @@
   <dimen name="normal_font_size">18sp</dimen>
   <dimen name="medium_font_size">22sp</dimen>
   <dimen name="image_dimension_3">500dp</dimen>
+  <dimen name="image_dimension_4">200dp</dimen>
+  <dimen name="six_times_margin">64dp</dimen>
 </resources>
