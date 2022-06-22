@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.WorkoutDetailActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <com.google.android.material.imageview.ShapeableImageView
+          android:id="@+id/workout_detail_gif"
+          android:layout_width="0dp"
+          android:layout_height="@dimen/image_dimension_3"
+          android:layout_marginStart="@dimen/default_margin"
+          android:layout_marginTop="@dimen/default_margin"
+          android:layout_marginEnd="@dimen/default_margin"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:srcCompat="@drawable/ic_baseline_fitness_center" />
+
+      <TextView
+          android:id="@+id/workout_detail_name"
+          style="@style/BoldTextStyle"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/default_margin"
+          android:layout_marginTop="@dimen/default_margin"
+          android:layout_marginEnd="@dimen/default_margin"
+          android:gravity="center_horizontal"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/workout_detail_gif"
+          tools:text="@string/workout" />
+
+      <com.google.android.material.chip.ChipGroup
+          android:id="@+id/workout_labels"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/default_margin"
+          android:layout_marginTop="@dimen/default_margin"
+          android:layout_marginEnd="@dimen/default_margin"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.52"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/workout_detail_name">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/body_part_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/body_part"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/equipment_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/equipment"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/target_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/target"/>
+
+      </com.google.android.material.chip.ChipGroup>
+
+      <Button
+          android:id="@+id/btn_start"
+          style="@style/ButtonStyle"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="@dimen/default_margin"
+          android:layout_marginEnd="16dp"
+          android:layout_marginBottom="@dimen/quadraple_margin"
+          android:text="@string/start"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/workout_labels" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
