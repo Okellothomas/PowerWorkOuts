@@ -1,12 +1,16 @@
 package com.pro.powerworkouts.fragment;
 
 import static com.pro.powerworkouts.util.Constants.CLIENT;
+import static com.pro.powerworkouts.util.UIHelpers.displayData;
+import static com.pro.powerworkouts.util.UIHelpers.displayError;
+import static com.pro.powerworkouts.util.UIHelpers.hideProgressDialog;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.pro.powerworkouts.R;
@@ -38,6 +43,14 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
   RecyclerView categoryGrid;
   @BindView(R.id.screen_title)
   TextView welcomeText;
+  @BindView(R.id.error_text_3)
+  TextView errorText;
+  @BindView(R.id.progress_bar_3)
+  ProgressBar progressBar;
+  @BindView(R.id.progress_text_3)
+  TextView progressText;
+  @BindView(R.id.workout_category_group)
+  Group workoutCategoryGroup;
 
   public static final String TAG = WorkoutCategoryFragment.class.getSimpleName();
   private final List<Integer> categoryImages = new ArrayList<>(Arrays.asList(R.drawable.ic_baseline_fitness_center));
@@ -72,17 +85,27 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
     CLIENT.getBodyParts().enqueue(new Callback<List<String>>() {
       @Override
       public void onResponse(@NonNull Call<List<String>> call, @NonNull Response<List<String>> response) {
+        hideProgressDialog(progressBar, progressText);
         if(response.isSuccessful()){
           assert response.body() != null;
           Log.d(TAG, "Retrieved workout categories: " + response.body().size());
           WorkoutCategoryAdapter adapter = new WorkoutCategoryAdapter(getContext(), response.body(), categoryImages, WorkoutCategoryFragment.this);
           categoryGrid.setLayoutManager(new GridLayoutManager(getContext(), getResources().getInteger(R.integer.grid_columns)));
           categoryGrid.setAdapter(adapter);
+
+          if(adapter.getItemCount() < 1){
+            displayError(errorText, R.string.no_workout_categories);
+          } else {
+            displayData(workoutCategoryGroup);
+          }
+        } else {
+          displayError(errorText, R.string.unsuccessful_feeback);
         }
       }
 
       @Override
       public void onFailure(@NonNull Call<List<String>> call, @NonNull Throwable t) {
+        displayError(errorText, R.string.failure_feedback);
         Log.e(TAG, "Error while fetching workout categories: ", t);
       }
     });

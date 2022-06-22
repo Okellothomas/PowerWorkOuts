@@ -1,6 +1,10 @@
 package com.pro.powerworkouts.ui;
 
 import static com.pro.powerworkouts.util.Constants.CLIENT;
+import static com.pro.powerworkouts.util.UIHelpers.capitalize;
+import static com.pro.powerworkouts.util.UIHelpers.displayData;
+import static com.pro.powerworkouts.util.UIHelpers.displayError;
+import static com.pro.powerworkouts.util.UIHelpers.hideProgressDialog;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +16,9 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pro.powerworkouts.R;
 import com.pro.powerworkouts.adapter.WorkoutListAdapter;
@@ -20,6 +27,7 @@ import com.pro.powerworkouts.models.Workout;
 import com.pro.powerworkouts.util.Constants;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -31,6 +39,12 @@ import retrofit2.Response;
 public class WorkoutListActivity extends AppCompatActivity implements OnClickListener {
   @BindView(R.id.workout_list)
   RecyclerView workoutList;
+  @BindView(R.id.progress_circular)
+  ProgressBar progressBar;
+  @BindView(R.id.progress_text)
+  TextView progressText;
+  @BindView(R.id.error_text)
+  TextView errorText;
 
   public static final String TAG = WorkoutListActivity.class.getSimpleName();
 
@@ -41,7 +55,7 @@ public class WorkoutListActivity extends AppCompatActivity implements OnClickLis
     ButterKnife.bind(this);
 
     String workoutCategory = getIntent().getStringExtra(Constants.EXTRA_WORKOUT_CATEGORY);
-    Objects.requireNonNull(getSupportActionBar()).setTitle(workoutCategory);
+    Objects.requireNonNull(getSupportActionBar()).setTitle(String.format("%s workouts", capitalize(workoutCategory)));
 
     loadWorkouts(workoutCategory);
   }
@@ -51,6 +65,7 @@ public class WorkoutListActivity extends AppCompatActivity implements OnClickLis
     CLIENT.getWorkoutsByBodyPart(bodyPart).enqueue(new Callback<List<Workout>>() {
       @Override
       public void onResponse(@NonNull Call<List<Workout>> call, @NonNull Response<List<Workout>> response) {
+        hideProgressDialog(progressBar, progressText);
         if(response.isSuccessful()){
           assert response.body() != null;
           Log.d(TAG, "Retrieved workouts: " + response.body().size());
@@ -58,11 +73,20 @@ public class WorkoutListActivity extends AppCompatActivity implements OnClickLis
           WorkoutListAdapter adapter = new WorkoutListAdapter(getApplicationContext(), response.body(), WorkoutListActivity.this);
           setLayoutManager();
           workoutList.setAdapter(adapter);
+
+          if(adapter.getItemCount() < 1){
+            displayError(errorText, R.string.no_workouts);
+          } else {
+            displayData(workoutList);
+          }
+        } else {
+          displayError(errorText, R.string.unsuccessful_feeback);
         }
       }
 
       @Override
       public void onFailure(@NonNull Call<List<Workout>> call, @NonNull Throwable t) {
+        displayError(errorText, R.string.failure_feedback);
         Log.e(TAG, "Error while fetching workouts: ", t);
       }
     });

@@ -1,12 +1,18 @@
 package com.pro.powerworkouts.ui;
 
 import static com.pro.powerworkouts.util.Constants.CLIENT;
+import static com.pro.powerworkouts.util.UIHelpers.capitalize;
+import static com.pro.powerworkouts.util.UIHelpers.displayData;
+import static com.pro.powerworkouts.util.UIHelpers.displayError;
+import static com.pro.powerworkouts.util.UIHelpers.hideProgressDialog;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.Group;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -33,6 +39,14 @@ public class WorkoutDetailActivity extends AppCompatActivity {
   Chip equipmentChip;
   @BindView(R.id.target_chip)
   Chip targetChip;
+  @BindView(R.id.progress_circular_2)
+  ProgressBar progressBar;
+  @BindView(R.id.progress_text_2)
+  TextView progressText;
+  @BindView(R.id.workout_detail_group)
+  Group workoutDetailGroup;
+  @BindView(R.id.error_text_2)
+  TextView errorText;
 
   public static final String TAG = WorkoutDetailActivity.class.getSimpleName();
 
@@ -51,15 +65,20 @@ public class WorkoutDetailActivity extends AppCompatActivity {
     CLIENT.getExerciseById(id).enqueue(new Callback<Workout>() {
       @Override
       public void onResponse(@NonNull Call<Workout> call, @NonNull Response<Workout> response) {
+        hideProgressDialog(progressBar, progressText);
         if(response.isSuccessful()){
           assert response.body() != null;
           Log.d(TAG, "Retrieved workout: " + response.body().getName());
           setWorkoutDetails(response.body());
+          displayData(workoutDetailGroup);
+        } else {
+          displayError(errorText, R.string.unsuccessful_feeback);
         }
       }
 
       @Override
       public void onFailure(@NonNull Call<Workout> call, @NonNull Throwable t) {
+        displayError(errorText, t.getMessage());
         Log.e(TAG, "Error while fetching workout: " + id, t);
       }
     });
@@ -67,7 +86,7 @@ public class WorkoutDetailActivity extends AppCompatActivity {
 
   private void setWorkoutDetails(Workout workout){
     Glide.with(this).asGif().load(workout.getGifUrl()).into(workoutGif);
-    workoutDetailName.setText(workout.getName());
+    workoutDetailName.setText(capitalize(workout.getName()));
     bodyPartChip.setText(workout.getBodyPart());
     equipmentChip.setText(workout.getEquipment());
     targetChip.setText(workout.getTarget());
