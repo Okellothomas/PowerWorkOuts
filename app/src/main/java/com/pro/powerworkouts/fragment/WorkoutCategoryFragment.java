@@ -53,7 +53,10 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
   Group workoutCategoryGroup;
 
   public static final String TAG = WorkoutCategoryFragment.class.getSimpleName();
-  private final List<Integer> categoryImages = new ArrayList<>(Arrays.asList(R.drawable.ic_baseline_fitness_center));
+  private final List<Integer> categoryImages = new ArrayList<>(
+          Arrays.asList(R.drawable.back_workout, R.drawable.cardio_workout, R.drawable.chest_workout,
+                  R.drawable.lower_arms_workout, R.drawable.lower_legs_workout, R.drawable.neck_workout, R.drawable.shoulder_workout,
+                  R.drawable.upper_arms_workout, R.drawable.upper_legs_workout, R.drawable.waist_workout));
 
   public WorkoutCategoryFragment() {
     // Required empty public constructor
