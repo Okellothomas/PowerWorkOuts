@@ -12,6 +12,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.pro.powerworkouts.R;
 import com.pro.powerworkouts.interfaces.OnClickListener;
@@ -45,7 +46,7 @@ public class WorkoutCategoryAdapter extends RecyclerView.Adapter<WorkoutCategory
   @Override
   public void onBindViewHolder(@NonNull WorkoutCategoryViewHolder holder, int position) {
     String category = categoryLabels.get(position);
-    holder.bindWorkoutCategory(category, categoryImages.get(0));
+    holder.bindWorkoutCategory(category, categoryImages.get(position));
     holder.itemView.setOnClickListener(view -> listener.onClick(category));
   }
 
@@ -69,7 +70,7 @@ public class WorkoutCategoryAdapter extends RecyclerView.Adapter<WorkoutCategory
     }
 
     public void bindWorkoutCategory(String category, @DrawableRes int image){
-      Picasso.get().load(image).placeholder(R.drawable.ic_baseline_fitness_center).into(categoryImage);
+      Glide.with(context).asBitmap().load(image).placeholder(R.drawable.ic_baseline_fitness_center).into(categoryImage);
       categoryLabel.setText(capitalize(category));
     }
   }
