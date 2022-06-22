@@ -1,9 +1,13 @@
 <resources>
   <string name="app_name">PowerWorkOuts</string>
   <string name="workouts">Workouts</string>
-  <string name="saved">Saved</string>
+  <string name="done">Done</string>
   <string name="welcome">Welcome %1$s,</string>
   <string name="exercise_inquiry">What workout would you like to do today?</string>
   <string name="category">Category</string>
   <string name="workout">Workout</string>
+  <string name="start">Start</string>
+  <string name="body_part">Body part</string>
+  <string name="equipment">Equipment</string>
+  <string name="target">Target</string>
 </resources>
