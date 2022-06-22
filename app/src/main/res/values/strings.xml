@@ -4,4 +4,6 @@
   <string name="saved">Saved</string>
   <string name="welcome">Welcome %1$s,</string>
   <string name="exercise_inquiry">What workout would you like to do today?</string>
+  <string name="category">Category</string>
+  <string name="workout">Workout</string>
 </resources>
