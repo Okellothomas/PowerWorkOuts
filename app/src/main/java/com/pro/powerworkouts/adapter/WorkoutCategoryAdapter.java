@@ -1,5 +1,7 @@
 package com.pro.powerworkouts.adapter;
 
+import static com.pro.powerworkouts.util.UIHelpers.capitalize;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,7 +70,7 @@ public class WorkoutCategoryAdapter extends RecyclerView.Adapter<WorkoutCategory
 
     public void bindWorkoutCategory(String category, @DrawableRes int image){
       Picasso.get().load(image).placeholder(R.drawable.ic_baseline_fitness_center).into(categoryImage);
-      categoryLabel.setText(category);
+      categoryLabel.setText(capitalize(category));
     }
   }
 }
