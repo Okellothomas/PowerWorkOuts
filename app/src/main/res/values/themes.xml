@@ -15,10 +15,6 @@
         <item name="cardViewStyle">@style/CardViewStyle</item>
     </style>
 
-    <style name="NoAllCapsStyle" parent="TextAppearance.MaterialComponents.Button">
-        <item name="textAllCaps">false</item>
-    </style>
-
     <style name="RoundTopCornersImageStyle" parent="">
         <item name="cornerSizeTopRight">10%</item>
         <item name="cornerSizeTopLeft">10%</item>
