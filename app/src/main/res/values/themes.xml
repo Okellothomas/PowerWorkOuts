@@ -41,5 +41,14 @@
         <item name="android:textColor">@color/power_workouts_green</item>
     </style>
 
+    <style name="ButtonTextStyle" parent="BoldTextStyle">
+        <item name="android:textColor">@color/power_workouts_black</item>
+    </style>
 
+    <style name="ButtonStyle" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/power_workouts_yellow</item>
+        <item name="android:textAppearance">@style/ButtonTextStyle</item>
+        <item name="android:paddingTop">@dimen/padding_1</item>
+        <item name="android:paddingBottom">@dimen/padding_1</item>
+    </style>
 </resources>
