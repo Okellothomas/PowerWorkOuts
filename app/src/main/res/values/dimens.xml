@@ -8,6 +8,8 @@
   <dimen name="card_radius">16dp</dimen>
   <dimen name="image_dimension_2">150dp</dimen>
   <dimen name="padding">8dp</dimen>
+  <dimen name="padding_1">16dp</dimen>
   <dimen name="normal_font_size">18sp</dimen>
   <dimen name="medium_font_size">22sp</dimen>
+  <dimen name="image_dimension_3">500dp</dimen>
 </resources>
