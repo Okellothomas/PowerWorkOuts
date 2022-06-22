@@ -1,7 +1,8 @@
 package com.pro.powerworkouts.adapter;
 
+import static com.pro.powerworkouts.util.UIHelpers.capitalize;
+
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,15 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.pro.powerworkouts.R;
 import com.pro.powerworkouts.interfaces.OnClickListener;
 import com.pro.powerworkouts.models.Workout;
-import com.pro.powerworkouts.ui.WorkoutDetailActivity;
-import com.pro.powerworkouts.util.Constants;
-
 
 import java.util.List;
 
@@ -29,7 +25,7 @@ import butterknife.ButterKnife;
 public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.WorkoutListViewHolder> {
   private final Context context;
   private final List<Workout> workouts;
-  private OnClickListener listener;
+  private final OnClickListener listener;
 
   public WorkoutListAdapter(Context context, List<Workout> workouts, OnClickListener listener) {
     this.context = context;
@@ -62,7 +58,7 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
     @BindView(R.id.workout_name)
     TextView workoutName;
 
-    private Context context;
+    private final Context context;
 
     public WorkoutListViewHolder(@NonNull View itemView) {
       super(itemView);
@@ -72,7 +68,7 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
 
     public void bindWorkout(Workout workout){
       Glide.with(context).asGif().load(workout.getGifUrl()).placeholder(R.drawable.ic_baseline_fitness_center).into(workoutGif);
-      workoutName.setText(workout.getName());
+      workoutName.setText(capitalize(workout.getName()));
     }
   }
 }
