@@ -80,6 +80,7 @@ public class WorkoutListActivity extends AppCompatActivity implements OnClickLis
   public void onClick(String pathItem) {
     Intent intent = new Intent(this, WorkoutDetailActivity.class);
     intent.putExtra(Constants.EXTRA_WORKOUT_ID, pathItem);
+    Log.d(TAG, "Workout ID: " + pathItem);
     startActivity(intent);
   }
 }
