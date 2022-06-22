@@ -15,6 +15,21 @@
         <item name="cardViewStyle">@style/CardViewStyle</item>
     </style>
 
+    <style name="NoActionBarStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/power_workouts_green</item>
+        <item name="colorPrimaryVariant">@color/power_workouts_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/power_workouts_yellow</item>
+        <item name="colorSecondaryVariant">@color/power_workouts_yellow</item>
+        <item name="colorOnSecondary">@color/power_workouts_black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="cardViewStyle">@style/CardViewStyle</item>
+    </style>
+
     <style name="RoundTopCornersImageStyle" parent="">
         <item name="cornerSizeTopRight">10%</item>
         <item name="cornerSizeTopLeft">10%</item>
