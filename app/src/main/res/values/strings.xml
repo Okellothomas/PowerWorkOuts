@@ -24,4 +24,5 @@
     <string name="name">Name</string>
     <string name="email">Email</string>
   <string name="no_saved_workouts">No saved workouts</string>
+  <string name="logout">Logout</string>
 </resources>
