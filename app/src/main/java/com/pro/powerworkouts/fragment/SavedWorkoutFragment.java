@@ -1,5 +1,6 @@
 package com.pro.powerworkouts.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,9 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pro.powerworkouts.R;
+import com.pro.powerworkouts.interfaces.OnClickListener;
 import com.pro.powerworkouts.models.Workout;
 import com.pro.powerworkouts.network.ExerciseDbApi;
 import com.pro.powerworkouts.network.ExerciseDbClient;
+import com.pro.powerworkouts.ui.WorkoutDetailActivity;
+import com.pro.powerworkouts.util.Constants;
 
 import java.util.List;
 
@@ -22,17 +26,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SavedWorkoutFragment extends Fragment {
+public class SavedWorkoutFragment extends Fragment implements OnClickListener {
   public static final String TAG = SavedWorkoutFragment.class.getSimpleName();
-  private static final String ARG_PARAM1 = "param1";
-  private static final String ARG_PARAM2 = "param2";
-
-  private String mParam1;
-  private String mParam2;
-
-  private ExerciseDbApi client = ExerciseDbClient.getClient();
-
-
 
   public SavedWorkoutFragment() {
     // Required empty public constructor
@@ -51,4 +46,10 @@ public class SavedWorkoutFragment extends Fragment {
 
   }
 
+  @Override
+  public void onClick(String pathItem) {
+    Intent intent = new Intent(getContext(), WorkoutDetailActivity.class);
+    intent.putExtra(Constants.EXTRA_WORKOUT_ID, pathItem);
+    startActivity(intent);
+  }
 }
