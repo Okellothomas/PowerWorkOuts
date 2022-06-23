@@ -44,55 +44,50 @@
     <EditText
         android:id="@+id/nameEdit"
         android:layout_width="260dp"
-        android:layout_height="39dp"
-        android:textAlignment="center"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:textColorHint="@color/my_black"
-        android:fontFamily="@font/poppins_light"
-        android:textColor="@color/my_black"
-        android:inputType="textPersonName"
-        android:text="@string/name"
-        android:background="@drawable/by_button"
         android:layout_marginBottom="5dp"
-         />
+        android:background="@drawable/by_button"
+        android:fontFamily="@font/poppins_light"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/emailEdit"
         android:layout_width="260dp"
-        android:layout_height="39dp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:text="@string/email"
-        android:fontFamily="@font/poppins_light"
-        android:textAlignment="center"
-        android:background="@drawable/by_button"
-        android:inputType="textEmailAddress"
         android:layout_marginBottom="5dp"
-         />
+        android:background="@drawable/by_button"
+        android:fontFamily="@font/poppins_light"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/passWord"
         android:layout_width="260dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="5dp"
-        android:hint="Password"
-        android:fontFamily="@font/poppins_light"
-        android:textAlignment="center"
-        android:background="@drawable/by_button"
-        android:inputType="textPassword"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        />
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/by_button"
+        android:fontFamily="@font/poppins_light"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/confirmPassWord"
         android:layout_width="260dp"
-        android:layout_height="39dp"
-        android:hint="Confirm Password"
-        android:textAlignment="center"
-        android:background="@drawable/by_button"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/by_button"
         android:fontFamily="@font/poppins_light"
+        android:hint="Confirm Password"
         android:inputType="textPassword"
-        android:layout_marginBottom="5dp"/>
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/createUser"
