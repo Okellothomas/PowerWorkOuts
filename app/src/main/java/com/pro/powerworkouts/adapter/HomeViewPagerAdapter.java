@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.pro.powerworkouts.fragment.SavedWorkoutFragment;
+import com.pro.powerworkouts.fragment.DoneWorkoutFragment;
 import com.pro.powerworkouts.fragment.WorkoutCategoryFragment;
 
 public class HomeViewPagerAdapter extends FragmentStateAdapter {
@@ -24,7 +24,7 @@ public class HomeViewPagerAdapter extends FragmentStateAdapter {
         fragment = new WorkoutCategoryFragment();
         break;
       case 1:
-        fragment = new SavedWorkoutFragment();
+        fragment = new DoneWorkoutFragment();
         break;
     }
     return fragment;
