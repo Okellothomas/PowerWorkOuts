@@ -12,15 +12,22 @@ import androidx.constraintlayout.widget.Group;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.pro.powerworkouts.R;
 import com.pro.powerworkouts.models.Workout;
 import com.pro.powerworkouts.util.Constants;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,6 +54,8 @@ public class WorkoutDetailActivity extends AppCompatActivity {
   Group workoutDetailGroup;
   @BindView(R.id.error_text_2)
   TextView errorText;
+  @BindView(R.id.btn_save)
+  Button saveButton;
 
   public static final String TAG = WorkoutDetailActivity.class.getSimpleName();
 
@@ -90,5 +99,28 @@ public class WorkoutDetailActivity extends AppCompatActivity {
     bodyPartChip.setText(workout.getBodyPart());
     equipmentChip.setText(workout.getEquipment());
     targetChip.setText(workout.getTarget());
+
+    // Save done workout upon click
+    saveButton.setOnClickListener(view -> {
+      saveWorkout(workout);
+    });
+  }
+
+  private void saveWorkout(Workout workout){
+    // Get user id
+    String userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+    DatabaseReference reference = FirebaseDatabase.getInstance()
+            .getReference(Constants.FIREBASE_NODE_WORKOUTS)
+            .child(userId)
+            .child(workout.getId());
+
+    // Save done workout and display feedback to user
+    reference.setValue(workout).addOnCompleteListener(this, saveTask -> {
+      if (saveTask.isSuccessful()){
+        Toast.makeText(this, R.string.saved, Toast.LENGTH_SHORT).show();
+      } else {
+        Toast.makeText(this, Objects.requireNonNull(saveTask.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+      }
+    });
   }
 }

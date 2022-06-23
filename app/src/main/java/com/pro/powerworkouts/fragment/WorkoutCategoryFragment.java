@@ -22,7 +22,9 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.pro.powerworkouts.R;
+import com.pro.powerworkouts.SplashScreen;
 import com.pro.powerworkouts.adapter.WorkoutCategoryAdapter;
 import com.pro.powerworkouts.interfaces.OnClickListener;
 import com.pro.powerworkouts.ui.WorkoutListActivity;
@@ -52,6 +54,9 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
   @BindView(R.id.workout_category_group)
   Group workoutCategoryGroup;
 
+  private FirebaseAuth auth;
+  private FirebaseAuth.AuthStateListener authListener;
+
   public static final String TAG = WorkoutCategoryFragment.class.getSimpleName();
   private final List<Integer> categoryImages = new ArrayList<>(
           Arrays.asList(R.drawable.back_workout, R.drawable.cardio_workout, R.drawable.chest_workout,
@@ -74,14 +79,31 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
     super.onViewCreated(view, savedInstanceState);
     ButterKnife.bind(this, view);
 
-    displayWelcomeText();
+    auth = FirebaseAuth.getInstance();
+    authListener = new FirebaseAuth.AuthStateListener() {
+      @Override
+      public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+        if(firebaseAuth.getCurrentUser() != null){
+          displayWelcomeText(firebaseAuth.getCurrentUser().getDisplayName());
+        } else {
+          redirectToSplashScreen();
+        }
+      }
+    };
+
     loadWorkoutCategories();
   }
 
-  private void displayWelcomeText(){
-    welcomeText.setText(getString(R.string.welcome, "John"));
+  private void displayWelcomeText(String name){
+    welcomeText.setText(getString(R.string.welcome, name));
   }
 
+  private void redirectToSplashScreen(){
+    Intent intent = new Intent(getContext(), SplashScreen.class);
+    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    startActivity(intent);
+    requireActivity().finish();
+  }
   // Retrieve workout categories
   private void loadWorkoutCategories(){
     // Send request
@@ -112,6 +134,20 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
         Log.e(TAG, "Error while fetching workout categories: ", t);
       }
     });
+  }
+
+  @Override
+  public void onStart() {
+    super.onStart();
+    auth.addAuthStateListener(authListener);
+  }
+
+  @Override
+  public void onStop() {
+    super.onStop();
+    if(authListener != null){
+      auth.removeAuthStateListener(authListener);
+    }
   }
 
   @Override

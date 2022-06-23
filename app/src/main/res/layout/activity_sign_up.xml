@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SignUp"
+    tools:context=".ui.SignUpActivity"
     android:orientation="vertical"
     android:layout_gravity="center"
     android:gravity="center">
@@ -32,14 +32,14 @@
 
     <TextView
         android:id="@+id/textView2"
+        style="@style/BoldTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
         android:layout_marginTop="20sp"
         android:fontFamily="@font/poppins_black"
-        android:textStyle="bold"
         android:text="@string/to_begin_kindly_create_an_acount"
-         />
+        android:textColor="@color/power_workouts_black"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/nameEdit"
@@ -89,25 +89,23 @@
         android:inputType="textPassword"
         android:textAlignment="center" />
 
-    <TextView
+    <Button
         android:id="@+id/createUser"
-        android:layout_width="150dp"
-        android:layout_height="39dp"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
         android:text="Sign Up"
         android:textAlignment="center"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:fontFamily="@font/poppins_medium"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/my_sign_up"
-        />
+        android:textColor="@color/power_workouts_black" />
 
     <ProgressBar
         android:id="@+id/firebaseProgress"
-        android:textAlignment="center"
-        android:visibility="gone"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/loginProgressText"
@@ -123,12 +121,13 @@
 
     <TextView
         android:id="@+id/loginText"
+        style="@style/NormalTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:autoLink="all"
         android:fontFamily="@font/poppins_black"
         android:text="Already have an account? Login Here."
-        />
+        android:textColor="@color/power_workouts_black" />
 
 </LinearLayout>
