@@ -26,7 +26,7 @@
         </activity>
 
             <activity
-            android:name=".ui.SignUp"
+            android:name=".ui.SignUpActivity"
             android:exported="false"
             android:theme="@style/NoActionBarStyle">
         </activity>
@@ -39,7 +39,7 @@
             android:theme="@style/NoActionBarStyle" />
         <activity
             android:name=".ui.HomeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
