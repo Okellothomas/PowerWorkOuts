@@ -10,4 +10,5 @@ public class Constants {
   public static final String EXTRA_WORKOUT_CATEGORY = "workout_category";
   public static final ExerciseDbApi CLIENT = ExerciseDbClient.getClient();
   public static final String EXTRA_WORKOUT_ID = "workout_id";
+  public static final String FIREBASE_NODE_WORKOUTS = "done_workouts";
 }
