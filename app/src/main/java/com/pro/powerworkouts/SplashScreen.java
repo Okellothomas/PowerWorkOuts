@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.pro.powerworkouts.ui.SignUp;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.pro.powerworkouts.ui.HomeActivity;
@@ -35,7 +36,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+                Intent i = new Intent(getApplicationContext(),SignUp.class);
                 startActivity(i);
             }
         },5500);

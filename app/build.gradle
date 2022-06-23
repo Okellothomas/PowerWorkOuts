@@ -43,7 +43,6 @@ android {
 }
 
 dependencies {
-<<<<<<< HEAD
 
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
@@ -91,6 +90,4 @@ dependencies {
     //splash screen
     implementation "com.airbnb.android:lottie:5.2.0"
 
-=======
->>>>>>> b708b2db9b5adc6b1f55cb30d8401407c4231b66
 }
