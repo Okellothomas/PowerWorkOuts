@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_baseline_logout.xml" value="0.15" />
         <entry key="app/src/main/res/layout-land/fragment_workout_category.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17135416666666667" />
@@ -14,6 +15,7 @@
         <entry key="app/src/main/res/layout/item_workout_category.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_workout_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_workout_saved.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/app_menu.xml" value="0.21" />
       </map>
     </option>
   </component>
