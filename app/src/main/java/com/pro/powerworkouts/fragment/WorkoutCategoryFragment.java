@@ -6,6 +6,7 @@ import static com.pro.powerworkouts.util.UIHelpers.displayError;
 import static com.pro.powerworkouts.util.UIHelpers.hideProgressDialog;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -104,7 +106,8 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
           assert response.body() != null;
           Log.d(TAG, "Retrieved workout categories: " + response.body().size());
           WorkoutCategoryAdapter adapter = new WorkoutCategoryAdapter(getContext(), response.body(), categoryImages, WorkoutCategoryFragment.this);
-          categoryGrid.setLayoutManager(new GridLayoutManager(getContext(), getResources().getInteger(R.integer.grid_columns)));
+
+          setLayoutManager();
           categoryGrid.setAdapter(adapter);
 
           if(adapter.getItemCount() < 1){
@@ -123,6 +126,14 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
         Log.e(TAG, "Error while fetching workout categories: ", t);
       }
     });
+  }
+
+  private void setLayoutManager(){
+    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+      categoryGrid.setLayoutManager(new GridLayoutManager(getContext(), getResources().getInteger(R.integer.grid_columns)));
+    } else {
+      categoryGrid.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
   }
 
   @Override
