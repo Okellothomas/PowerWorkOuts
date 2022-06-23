@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">PowerWorkOuts</string>
+  <string name="app_name">PowerWorkOuts</string>
+  <string name="workouts">Workouts</string>
+  <string name="saved">Saved</string>
+  <string name="welcome">Welcome %1$s,</string>
+  <string name="exercise_inquiry">What workouts would you like to do today?</string>
+  <string name="category">Category</string>
+  <string name="workout">Workout</string>
+  <string name="save_workout">Save workout</string>
+  <string name="body_part">Body part</string>
+  <string name="equipment">Equipment</string>
+  <string name="target">Target</string>
+  <string name="loading">Loading…</string>
+  <string name="error">Error</string>
+  <string name="unsuccessful_feeback">Something went wrong, please try again later</string>
+  <string name="failure_feedback">Something went wrong. Please check your internet connection and try again.</string>
+  <string name="no_workouts">No workouts found</string>
+  <string name="no_workout_categories">No workout categories found</string>
+  <string name="content_desc_category_image">Workout category image</string>
+  <string name="content_desc_drag">Icon to reorder saved workouts</string>
 </resources>

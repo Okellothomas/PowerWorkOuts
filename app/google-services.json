@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "672318261382",
+    "project_id": "powerworkouts-f1bd0",
+    "storage_bucket": "powerworkouts-f1bd0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672318261382:android:caf740c3e7dc9dbfb72907",
+        "android_client_info": {
+          "package_name": "com.pro.powerworkouts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672318261382-9thvc7cno5tai8jb0g2iniqv4ountae9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlRjuLITfojaABRX3UbxlwWV3KyKPo18Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672318261382-9thvc7cno5tai8jb0g2iniqv4ountae9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
