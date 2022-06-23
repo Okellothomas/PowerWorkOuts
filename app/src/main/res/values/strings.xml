@@ -1,4 +1,5 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">PowerWorkOuts</string>
     <string name="workouts">Workouts</string>
     <string name="saved">Saved</string>
@@ -18,4 +19,10 @@
     <string name="no_workout_categories">No workout categories found</string>
     <string name="content_desc_category_image">Workout category image</string>
     <string name="content_desc_drag">Icon to reorder saved workouts</string>
+=======
+    <string name="sign_up">Sign Up</string>
+    <string name="to_begin_kindly_create_an_acount">To begin kindly create an acount</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+>>>>>>> b708b2db9b5adc6b1f55cb30d8401407c4231b66
 </resources>

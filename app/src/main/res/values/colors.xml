@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -11,4 +12,12 @@
     <color name="power_workouts_green">#57B894</color>
     <color name="power_workouts_yellow">#FFCA43</color>
     <color name="power_workouts_black">#292929</color>
+=======
+    <!-- My colors -->
+    <color name="yellow">#FFCA43</color>
+    <color name="my_black">#292929</color>
+    <color name="my_green">#57B894</color>
+
+
+>>>>>>> b708b2db9b5adc6b1f55cb30d8401407c4231b66
 </resources>
