@@ -16,13 +16,13 @@ import com.pro.powerworkouts.interfaces.OnClickListener;
 import com.pro.powerworkouts.models.Workout;
 import com.pro.powerworkouts.viewholder.FirebaseDoneWorkoutViewHolder;
 
-public class FirebaseDoneWorkoutsAdapter extends FirebaseRecyclerAdapter<Workout, FirebaseDoneWorkoutViewHolder> {
-  public static final String TAG = FirebaseDoneWorkoutsAdapter.class.getSimpleName();
+public class FirebaseSavedWorkoutsAdapter extends FirebaseRecyclerAdapter<Workout, FirebaseDoneWorkoutViewHolder> {
+  public static final String TAG = FirebaseSavedWorkoutsAdapter.class.getSimpleName();
   private final Context context;
   private final DatabaseReference databaseReference;
   private final OnClickListener listener;
 
-  public FirebaseDoneWorkoutsAdapter(@NonNull FirebaseRecyclerOptions<Workout> options, Context context, DatabaseReference databaseReference, OnClickListener listener) {
+  public FirebaseSavedWorkoutsAdapter(@NonNull FirebaseRecyclerOptions<Workout> options, Context context, DatabaseReference databaseReference, OnClickListener listener) {
     super(options);
     this.context = context;
     this.databaseReference = databaseReference;
