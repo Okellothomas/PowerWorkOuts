@@ -41,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
           tab.setText(R.string.workouts);
           break;
         case 1:
-          tab.setText(R.string.done);
+          tab.setText(R.string.saved);
           break;
       }
     }).attach();
