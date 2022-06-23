@@ -31,7 +31,7 @@
             android:fontFamily="@font/poppins_bold"
             android:text="@string/sign_up"
             android:textColor="@color/my_green"
-            android:textSize="24sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="165dp"
             tools:layout_editor_absoluteY="264dp" />
