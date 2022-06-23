@@ -7,12 +7,65 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/powerWorkout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:fontFamily="@font/poppins_medium"
+        android:text="PowerWorkouts"
+        android:textAlignment="center"
+        android:textColor="#57B894"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.567" />
+
+    <TextView
+        android:id="@+id/sloganText"
+        android:layout_width="353dp"
+        android:layout_height="83dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Get workout suggestions from your physical fitness partner"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.706" />
 
+    <ImageView
+        android:id="@+id/powerImage"
+        android:layout_width="381dp"
+        android:layout_height="290dp"
+        app:srcCompat="@drawable/stability_ball"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <Button
+        android:id="@+id/getStartedButton"
+        android:layout_width="209dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="138dp"
+        android:layout_marginBottom="98dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Get Started"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.846"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
