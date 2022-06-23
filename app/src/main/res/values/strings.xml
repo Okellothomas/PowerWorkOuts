@@ -17,4 +17,5 @@
   <string name="no_workouts">No workouts found</string>
   <string name="no_workout_categories">No workout categories found</string>
   <string name="content_desc_category_image">Workout category image</string>
+  <string name="content_desc_drag">Icon to reorder saved workouts</string>
 </resources>
