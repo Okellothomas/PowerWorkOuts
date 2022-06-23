@@ -86,4 +86,8 @@ dependencies {
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    //splash screen
+    implementation "com.airbnb.android:lottie:5.2.0"
+
 }
