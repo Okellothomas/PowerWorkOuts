@@ -80,14 +80,9 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
     ButterKnife.bind(this, view);
 
     auth = FirebaseAuth.getInstance();
-    authListener = new FirebaseAuth.AuthStateListener() {
-      @Override
-      public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-        if(firebaseAuth.getCurrentUser() != null){
-          displayWelcomeText(firebaseAuth.getCurrentUser().getDisplayName());
-        } else {
-          redirectToSplashScreen();
-        }
+    authListener = firebaseAuth -> {
+      if(firebaseAuth.getCurrentUser() != null){
+        displayWelcomeText(firebaseAuth.getCurrentUser().getDisplayName());
       }
     };
 
@@ -98,12 +93,6 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
     welcomeText.setText(getString(R.string.welcome, name));
   }
 
-  private void redirectToSplashScreen(){
-    Intent intent = new Intent(getContext(), SplashScreen.class);
-    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-    startActivity(intent);
-    requireActivity().finish();
-  }
   // Retrieve workout categories
   private void loadWorkoutCategories(){
     // Send request
