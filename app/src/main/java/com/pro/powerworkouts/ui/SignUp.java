@@ -82,6 +82,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
             finish();
         }
         if (v == mCreateUser){
+            mCreateUser.setVisibility(View.GONE);
+            mLoginText.setVisibility(View.GONE);
             createAUser();
         }
     }
