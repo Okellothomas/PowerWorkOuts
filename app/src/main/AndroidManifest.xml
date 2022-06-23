@@ -15,17 +15,15 @@
         android:theme="@style/Theme.PowerWorkOuts"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
             android:name=".SplashScreen"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-=======
+
+            <activity
             android:name=".ui.SignUp"
             android:exported="false"
             android:theme="@style/Thomas">
->>>>>>> b708b2db9b5adc6b1f55cb30d8401407c4231b66
-
         </activity>
         <activity
             android:name=".ui.WorkoutDetailActivity"
