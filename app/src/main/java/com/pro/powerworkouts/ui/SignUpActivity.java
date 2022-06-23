@@ -24,9 +24,9 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SignUp extends AppCompatActivity implements View.OnClickListener{
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public static final String TAG = SignUp.class.getSimpleName();
+    public static final String TAG = SignUpActivity.class.getSimpleName();
 
     private FirebaseAuth mAuthenticate;
 
@@ -119,10 +119,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                 .addOnCompleteListener(this, task -> {
                     hideProgressBar();
                     if (task.isSuccessful()){
-                        Toast.makeText(SignUp.this, "Authentication successful.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignUpActivity.this, "Authentication successful.", Toast.LENGTH_LONG).show();
                         createUserProfile(Objects.requireNonNull(task.getResult().getUser()));
                     } else {
-                        Toast.makeText(SignUp.this, "Authentication failed.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignUpActivity.this, "Authentication failed.", Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -137,7 +137,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(SignUp.this, "Your profile name has been set", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignUpActivity.this, "Your profile name has been set", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

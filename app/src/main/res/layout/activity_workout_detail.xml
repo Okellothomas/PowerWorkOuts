@@ -32,6 +32,7 @@
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginEnd="@dimen/default_margin"
         android:gravity="center_horizontal"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/workout_detail_gif"
@@ -70,7 +71,7 @@
     </com.google.android.material.chip.ChipGroup>
 
     <Button
-        android:id="@+id/btn_start"
+        android:id="@+id/btn_save"
         style="@style/ButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -78,7 +79,8 @@
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="@dimen/quadraple_margin"
-        android:text="@string/save_workout"
+        android:text="@string/start_workout"
+        android:textColor="@color/power_workouts_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,6 +126,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        app:constraint_referenced_ids="workout_detail_gif, workout_detail_name, workout_labels, btn_start" />
+        app:constraint_referenced_ids="workout_detail_gif, workout_detail_name, workout_labels, btn_save" />
   </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

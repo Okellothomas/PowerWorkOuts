@@ -11,21 +11,22 @@ import androidx.annotation.NonNull;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 import com.pro.powerworkouts.R;
 import com.pro.powerworkouts.interfaces.OnClickListener;
 import com.pro.powerworkouts.models.Workout;
 import com.pro.powerworkouts.viewholder.FirebaseDoneWorkoutViewHolder;
 
-public class FirebaseSavedWorkoutsAdapter extends FirebaseRecyclerAdapter<Workout, FirebaseDoneWorkoutViewHolder> {
-  public static final String TAG = FirebaseSavedWorkoutsAdapter.class.getSimpleName();
+public class FirebaseDoneWorkoutsAdapter extends FirebaseRecyclerAdapter<Workout, FirebaseDoneWorkoutViewHolder> {
+  public static final String TAG = FirebaseDoneWorkoutsAdapter.class.getSimpleName();
   private final Context context;
   private final DatabaseReference databaseReference;
   private final OnClickListener listener;
 
-  public FirebaseSavedWorkoutsAdapter(@NonNull FirebaseRecyclerOptions<Workout> options, Context context, DatabaseReference databaseReference, OnClickListener listener) {
+  public FirebaseDoneWorkoutsAdapter(@NonNull FirebaseRecyclerOptions<Workout> options, Context context, Query query, OnClickListener listener) {
     super(options);
     this.context = context;
-    this.databaseReference = databaseReference;
+    this.databaseReference = query.getRef();
     this.listener = listener;
   }
 

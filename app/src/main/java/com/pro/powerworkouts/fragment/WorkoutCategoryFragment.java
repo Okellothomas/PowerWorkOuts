@@ -6,6 +6,7 @@ import static com.pro.powerworkouts.util.UIHelpers.displayError;
 import static com.pro.powerworkouts.util.UIHelpers.hideProgressDialog;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -22,7 +24,9 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.pro.powerworkouts.R;
+import com.pro.powerworkouts.SplashScreen;
 import com.pro.powerworkouts.adapter.WorkoutCategoryAdapter;
 import com.pro.powerworkouts.interfaces.OnClickListener;
 import com.pro.powerworkouts.ui.WorkoutListActivity;
@@ -52,6 +56,9 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
   @BindView(R.id.workout_category_group)
   Group workoutCategoryGroup;
 
+  private FirebaseAuth auth;
+  private FirebaseAuth.AuthStateListener authListener;
+
   public static final String TAG = WorkoutCategoryFragment.class.getSimpleName();
   private final List<Integer> categoryImages = new ArrayList<>(
           Arrays.asList(R.drawable.back_workout, R.drawable.cardio_workout, R.drawable.chest_workout,
@@ -74,12 +81,18 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
     super.onViewCreated(view, savedInstanceState);
     ButterKnife.bind(this, view);
 
-    displayWelcomeText();
+    auth = FirebaseAuth.getInstance();
+    authListener = firebaseAuth -> {
+      if(firebaseAuth.getCurrentUser() != null){
+        displayWelcomeText(firebaseAuth.getCurrentUser().getDisplayName());
+      }
+    };
+
     loadWorkoutCategories();
   }
 
-  private void displayWelcomeText(){
-    welcomeText.setText(getString(R.string.welcome, "John"));
+  private void displayWelcomeText(String name){
+    welcomeText.setText(getString(R.string.welcome, name));
   }
 
   // Retrieve workout categories
@@ -93,7 +106,8 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
           assert response.body() != null;
           Log.d(TAG, "Retrieved workout categories: " + response.body().size());
           WorkoutCategoryAdapter adapter = new WorkoutCategoryAdapter(getContext(), response.body(), categoryImages, WorkoutCategoryFragment.this);
-          categoryGrid.setLayoutManager(new GridLayoutManager(getContext(), getResources().getInteger(R.integer.grid_columns)));
+
+          setLayoutManager();
           categoryGrid.setAdapter(adapter);
 
           if(adapter.getItemCount() < 1){
@@ -112,6 +126,28 @@ public class WorkoutCategoryFragment extends Fragment implements OnClickListener
         Log.e(TAG, "Error while fetching workout categories: ", t);
       }
     });
+  }
+
+  private void setLayoutManager(){
+    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+      categoryGrid.setLayoutManager(new GridLayoutManager(getContext(), getResources().getInteger(R.integer.grid_columns)));
+    } else {
+      categoryGrid.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+  }
+
+  @Override
+  public void onStart() {
+    super.onStart();
+    auth.addAuthStateListener(authListener);
+  }
+
+  @Override
+  public void onStop() {
+    super.onStop();
+    if(authListener != null){
+      auth.removeAuthStateListener(authListener);
+    }
   }
 
   @Override

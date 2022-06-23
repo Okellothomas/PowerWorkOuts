@@ -24,7 +24,7 @@
 
     <TextView
         android:id="@+id/sloganText"
-        style="@style/BoldTextStyle"
+        style="@style/NormalTextStyle"
         android:layout_width="353dp"
         android:layout_height="83dp"
         android:layout_marginTop="@dimen/margin"
@@ -32,7 +32,7 @@
         android:textAlignment="center"
         android:textColor="@color/power_workouts_black"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/powerWorkout" />
