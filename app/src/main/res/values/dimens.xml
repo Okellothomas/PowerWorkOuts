@@ -14,4 +14,5 @@
   <dimen name="image_dimension_3">500dp</dimen>
   <dimen name="image_dimension_4">200dp</dimen>
   <dimen name="six_times_margin">64dp</dimen>
+  <dimen name="padding_2">24dp</dimen>
 </resources>
