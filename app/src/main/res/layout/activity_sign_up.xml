@@ -22,7 +22,7 @@
             android:paddingBottom="@dimen/padding_2"/>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/sign_up_title"
             style="@style/BoldTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             tools:layout_editor_absoluteY="264dp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/sign_up_subtitle"
             style="@style/NormalTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/by_button"
             android:fontFamily="@font/poppins_light"
-            android:hint="Confirm Password"
+            android:hint="Confirm password"
             android:inputType="textPassword"
             android:textAlignment="center"
             android:textAppearance="@style/NormalTextStyle" />
@@ -116,7 +116,7 @@
             android:layout_marginTop="@dimen/quadraple_margin"
             android:layout_marginEnd="@dimen/default_margin"
             android:gravity="center"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textAlignment="center"
             android:textColor="@color/power_workouts_black" />
 
