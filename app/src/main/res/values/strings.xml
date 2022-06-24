@@ -7,6 +7,7 @@
     <string name="exercise_inquiry">What workouts would you like to do today?</string>
     <string name="category">Category</string>
     <string name="workout">Workout</string>
+    <string name="workout_sec">00:30</string>
     <string name="start_workout">Start</string>
     <string name="body_part">Body part</string>
     <string name="equipment">Equipment</string>
@@ -30,4 +31,5 @@
     <string name="emailone">Email</string>
     <string name="password">Password</string>
     <string name="don_t_have_an_account_sign_up_here">Don\'t have an account? Sign up here</string>
+    <string name="workout_time">00:30</string>
 </resources>
