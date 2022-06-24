@@ -29,7 +29,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginTop="@dimen/margin"
         android:layout_marginEnd="@dimen/default_margin"
         android:gravity="center_horizontal"
         android:textSize="25sp"
@@ -84,6 +84,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/workout_sec" />
+
+    <TextView
+        android:id="@+id/workout_sec"
+        style="@style/NormalTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:gravity="center_horizontal"
+        android:text="@string/workout_sec"
+        android:textColor="@color/power_workouts_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/workout_labels" />
 
     <ProgressBar
@@ -126,6 +141,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        app:constraint_referenced_ids="workout_detail_gif, workout_detail_name, workout_labels, btn_save" />
+        app:constraint_referenced_ids="workout_detail_gif, workout_detail_name, workout_labels, btn_save, workout_sec" />
   </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

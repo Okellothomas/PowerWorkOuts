@@ -58,7 +58,7 @@
             android:background="@drawable/by_button"
             android:fontFamily="@font/poppins_light"
             android:hint="@string/email"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:textAlignment="center"
             android:textAppearance="@style/NormalTextStyle" />
 
@@ -73,9 +73,8 @@
             android:background="@drawable/by_button"
             android:fontFamily="@font/poppins_light"
             android:hint="@string/password"
-            android:inputType="textEmailAddress"
-            android:textAlignment="center"
-            />
+            android:inputType="none|textPassword"
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/login"
