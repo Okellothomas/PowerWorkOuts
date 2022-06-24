@@ -23,6 +23,11 @@
     <string name="to_begin_kindly_create_an_acount">To begin kindly create an acount</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
-  <string name="no_saved_workouts">No saved workouts</string>
-  <string name="logout">Logout</string>
+    <string name="no_saved_workouts">No saved workouts</string>
+    <string name="logout">Logout</string>
+    <string name="login">Login</string>
+    <string name="to_access_your_account_kindly_login">To access your account kindly login</string>
+    <string name="emailone">Email</string>
+    <string name="password">Password</string>
+    <string name="don_t_have_an_account_sign_up_here">Don\'t have an account? Sign up here</string>
 </resources>
