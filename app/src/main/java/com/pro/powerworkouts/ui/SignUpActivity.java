@@ -66,7 +66,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null){
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    // Sign out user to redirect them to login
+                    firebaseAuth.signOut();
+
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -121,10 +124,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 .addOnCompleteListener(this, task -> {
                     hideProgressBar();
                     if (task.isSuccessful()){
-                        Toast.makeText(SignUpActivity.this, "Authentication successful.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignUpActivity.this, "Sign up successful.", Toast.LENGTH_LONG).show();
                         createUserProfile(Objects.requireNonNull(task.getResult().getUser()));
                     } else {
-                        Toast.makeText(SignUpActivity.this, "Authentication failed.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignUpActivity.this, "Sign up failed.", Toast.LENGTH_LONG).show();
                     }
                 });
 
