@@ -15,21 +15,23 @@
         android:theme="@style/Theme.PowerWorkOuts"
         tools:targetApi="31">
         <activity
+            android:name=".ui.LoginActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBarStyle"/>
+        <activity
             android:name=".SplashScreen"
             android:exported="true"
-            android:theme="@style/NoActionBarStyle" >
+            android:theme="@style/NoActionBarStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-            <activity
+        <activity
             android:name=".ui.SignUpActivity"
             android:exported="false"
-            android:theme="@style/NoActionBarStyle">
-        </activity>
+            android:theme="@style/NoActionBarStyle"></activity>
         <activity
             android:name=".ui.WorkoutDetailActivity"
             android:exported="false" />
