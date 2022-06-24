@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.pro.powerworkouts.R;
 import com.pro.powerworkouts.SplashScreen;
@@ -39,6 +40,8 @@ public class HomeActivity extends AppCompatActivity {
 
     viewPagerAdapter = new HomeViewPagerAdapter(this);
     viewPager.setAdapter(viewPagerAdapter);
+
+    FirebaseApp.initializeApp(this);
     auth = FirebaseAuth.getInstance();
 
     initializeTabLayout();
